@@ -45,3 +45,48 @@
 - #systemctl disable --now httpd
 
 **SYSTEMD IS THE FIRST PROCESS WHOSE PID IS 1**
+
+**CONFIGURING AND SECURING SSH**
+ 
+ - We have 2 types of Authentication
+ - key based authentication
+ - command to generate key
+ - # ssh-keygen
+ - # cd .ssh
+ - # ssh-copy-id root@servera
+ - # ssh root@servera
+
+ - password base authentication
+
+**TO SEE THE IP ADDRESS**
+- #ifconfig
+       or 
+- #ip a s
+
+**TAR**
+- TAR stands for Tape Archive
+- TAR is a command in linux used for creating,viewing and extracting files.
+- It bundles file into a single archive file.
+- we can use linux tar command to create compressed or uncompressed archive files
+  
+  - -z   --gzip   use gzip compression(.tar.gz)
+  - -j   --bzip2  use bzip2 compression(.tar.bz2)
+
+  **HOW TO CREATE A TAR**
+  - #mkdir myetcbackup
+  - #tar -jcf /root/myetcbackup.tar.bz2 /etc  (to create the tar file)
+  - #tar -xjf /root/myetcbackup.tar.bz2 (to extract the tar file )
+   
+   **SCP(SECURILY COPY)**
+  **to copy file from controller to node1**
+  - #scp /etc/yum.conf root@node1:/root
+
+  **to get a file from node1 to controller**
+  - #scp root@node1:/etc/hosts /root
+
+  **Rsync**
+  - rsync is a file transfer utility designed to move data from one linux network host to another 
+
+  - rsync -av root@node1:/var/log serverlogs
+
+  
