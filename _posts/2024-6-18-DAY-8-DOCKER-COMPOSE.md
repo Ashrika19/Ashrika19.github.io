@@ -32,10 +32,10 @@
 -      networks:
 -        - myapp_network
 - volumes:
--  db_data:
--  www_data:
+-   db_data:
+-   www_data:
 - networks:
--  myapp_network:
+-   myapp_network:
 
 - docker compose -f docker-compose-wp.yaml up -d
 
