@@ -5,22 +5,6 @@
 
 - ![](../images/label.jpg)
 
-- EXAMPLE OF LABELS
-
-
-- kind: Pod
-- apiVersion: v1
--  metadata:
--   name: delhipod
--   labels:                                                   
--    env: development
--    class: pods
-- spec:
--  containers:
--    - name: c00
--         image: ubuntu
--         command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
-
 
 - #kubectl apply -f pod5.yaml
 - #kubectl get po 
@@ -45,21 +29,6 @@
 - ![](../images/node-selector.jpg)
 
 
-- kind: Pod
-- apiVersion: v1
-- metadata:
--  name: nodelabels
--  labels:
--    env: development
-- spec:
--     containers:
--       - name: c00
--         image: ubuntu
--         command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
--    nodeSelector:                                         
--       hardware: t2-medium
-
-- #kubectl apply -f pod6.yaml
 
 - #kubectl get no 
 - #kubectl label no wn1.tg.com hardware=t2.medium  (First we have to create a label)
@@ -75,30 +44,11 @@
 
 - A ReplicationController ensures that a specified number of pod replicas are running at all times. It maintains the desired number of replicas by creating or deleting pods as needed.
 
+-  Only supports equality-based selectors.
+
 - ![](../images/rc.jpg)
 
 
-- Only supports equality-based selectors.
-
-- #vi pod7.yaml
-- kind: ReplicationController               
-- apiVersion: v1
-- metadata:
--  name: myreplica
-- spec:
--  replicas: 2            
--  selector:        
--    myname: Bhupinder Rajput                             
--  template:                
--    metadata:
--      name: testpod6
--      labels:            
--        myname: Bhupinder
--    spec:
--     containers:
--       - name: c00
--         image: ubuntu
--         command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
 
 - #kubectl apply pod7.yaml
 
@@ -118,31 +68,11 @@
 
 - A ReplicaSet is an essential Kubernetes resource for maintaining the desired state of pod replicas, ensuring high availability and scalability of applications. It automatically replaces failed pods and can be scaled up or down based on requirements.
 
+-  Supports both equality-based and set-based selectors, allowing for more complex and powerful selection criteria.
+
 - ![](../images/rs.jpg)
 
-- Supports both equality-based and set-based selectors, allowing for more complex and powerful selection criteria.
 
-- #vi rs.yaml
-- kind: ReplicaSet                                    
-- apiVersion: apps/v1                            
-- metadata:
--  name: myrs
-- spec:
--  replicas: 2  
--  selector:                  
--    matchExpressions:                             # these must match the labels
--      - {key: myname, operator: In, values: [Bhupinder, Bupinder, Bhopendra]}
--      - {key: env, operator: NotIn, values: [production]}
--  template:      
--    metadata:
--      name: testpod7
--      labels:              
--        myname: Bhupinder
--    spec:
--     containers:
--       - name: c00
--         image: ubuntu
--         command: ["/bin/bash", "-c", "while true; do echo Technical-Guftgu; sleep 5 ; done"]
 
 - #kubectl apply -f rs.yml
 
