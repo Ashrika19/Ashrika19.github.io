@@ -1,38 +1,9 @@
-**REPLICA SET**
-
-- A ReplicaSet is an essential Kubernetes resource for maintaining the desired state of pod replicas, ensuring high availability and scalability of applications. It automatically replaces failed pods and can be scaled up or down based on requirements.
-
-- vi rstest1.yaml 
-
-![](../images/replica-set.png)
-
-- kubectl  create -f rstets1.yaml
-
-
-- HOW TO CHECK OUR LABEL ON POD
-
-- #kubectl get pods -l app=tg1
-
-- #kubectl get pods -l app!=tg1
-
-- #kubectl delete pod -l app=tg1
-
-
-- How to scale (manual as a horizontal scaling) Replica Set ?
-
--	kubectl  scale replicaset  rstest1 --replicas=6 -n cdts
-
-- kubectl  describe rs rstest1  -n cdts
-
-- how to delete / remove running replicaset
-
--		 kubectl delete rs  rstest1  -n cdts
-
-
-
 **LABELS**
 
 - Labels are key-value pairs that are attached to Kubernetes objects such as pods, services, and nodes. They are used for identification and organizing resources.
+
+
+- ![](../images/label.jpg)
 
 - EXAMPLE OF LABELS
 
@@ -71,6 +42,9 @@
 
 - NodeSelector is a field in the PodSpec that specifies the nodes on which a pod can be scheduled. It uses labels on nodes to filter them.
 
+- ![](../images/node-selector.jpg)
+
+
 - kind: Pod
 - apiVersion: v1
 - metadata:
@@ -100,6 +74,9 @@
 **REPLICA CONTROLLER**
 
 - A ReplicationController ensures that a specified number of pod replicas are running at all times. It maintains the desired number of replicas by creating or deleting pods as needed.
+
+- ![](../images/rc.jpg)
+
 
 - Only supports equality-based selectors.
 
@@ -140,6 +117,8 @@
 **REPLICA SET**
 
 - A ReplicaSet is an essential Kubernetes resource for maintaining the desired state of pod replicas, ensuring high availability and scalability of applications. It automatically replaces failed pods and can be scaled up or down based on requirements.
+
+- ![](../images/rs.jpg)
 
 - Supports both equality-based and set-based selectors, allowing for more complex and powerful selection criteria.
 
