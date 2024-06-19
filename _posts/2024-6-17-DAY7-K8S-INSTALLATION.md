@@ -42,6 +42,12 @@ Kubernetes, also known as k8s or kube, is an open source container orchestration
 
 "K8S INSTALLATION"
 
+- Step-1   Confirm the SG and allow ports for all nodes.
+-  1.1 set hostname and note down IP address  (private IP only)	
+-  1.2 Public and private generate for communication between master and wn1   (ONLY ON MASTER)
+       
+-			Goto master node and generate public and private key
+
 - Step-2  Kernel argument add / update 		[ Both VM ]
 
 - vi   /etc/sysctl.d/k8s.conf		
@@ -221,9 +227,9 @@ Kubernetes, also known as k8s or kube, is an open source container orchestration
 
 - apiVersion: v1
 - kind: Namespace
-  metadata:
-    name: cdts
+-  metadata:
+-    name: cdts
 
 - kubectl create -f ns.yaml
 
-- 
+ 
