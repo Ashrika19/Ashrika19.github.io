@@ -31,10 +31,10 @@
 -        - WORDPRESS_DB_NAME=tgindia
 -      networks:
 -        - myapp_network
--volumes:
+- volumes:
 -  db_data:
 -  www_data:
--networks:
+- networks:
 -  myapp_network:
 
 - docker compose -f docker-compose-wp.yaml up -d
