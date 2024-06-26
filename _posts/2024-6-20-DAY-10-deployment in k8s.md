@@ -27,4 +27,3 @@
 
 - kubectl rollout undo deployment myapp2 -n cdts --to-revision=4  
 
-- kubectl 
