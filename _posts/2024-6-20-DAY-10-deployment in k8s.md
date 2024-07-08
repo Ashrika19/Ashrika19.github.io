@@ -27,3 +27,5 @@
 
 - kubectl rollout undo deployment myapp2 -n cdts --to-revision=4  
 
+- crictl ps -a
+ (to check the container on worker nodes)
