@@ -87,7 +87,7 @@
    48  openstack server list
    49  openstack project list
    50  openstack flavor create --ram 512 --disk 1 --vcpus 1 m1.tiny
-   51  openstack flavor list
+   51  openstack flavor list 
    52  wget https://releases.ubuntu.com/focal/ubuntu-20.04.6-live-server-amd64.iso
    53  ll
    54  openstack image create "ubuntu" --disk-format iso --container-format aki --public --file /opt/stack/devstack/ubuntu-20.04.6-live-server-amd64.iso

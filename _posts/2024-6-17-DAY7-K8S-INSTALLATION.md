@@ -28,6 +28,8 @@ Kubernetes, also known as k8s or kube, is an open source container orchestration
 - **KUBE PROXY**(kube proxy is the network proxy which establish network between the worker node and the master node)
 
 - **NAMESPACE**
+- A namespace in Kubernetes is a way to divide cluster resources between multiple users. 
+
 - Consider a scenario where a company has multiple departments such as development, testing, and production. Each department can be assigned its own namespace:
 
 - development
